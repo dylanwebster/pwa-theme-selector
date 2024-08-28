@@ -1,30 +1,24 @@
-// Event listener for DOMContentLoaded
 document.addEventListener('DOMContentLoaded', function () {
     const colorPicker = document.getElementById('colorPicker');
+    const applyButton = document.getElementById('applyButton');
 
-    // Load saved color from storage, if available
-    chrome.storage.sync.get('themeColor', function(data) {
-        if (data.themeColor) {
-            colorPicker.value = data.themeColor;
-        }
-    });
+    chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+        const currentUrl = new URL(tabs[0].url).origin;
 
-    // Handle color picker change
-    colorPicker.addEventListener('input', function () {
-        const selectedColor = colorPicker.value;
-
-        // Save the selected color to Chrome storage
-        chrome.storage.sync.set({ 'themeColor': selectedColor }, function() {
-            console.log('Theme color saved: ' + selectedColor);
+        chrome.storage.local.get([currentUrl], function(data) {
+            const savedColor = data[currentUrl] || '#000000'; // Default color
+            colorPicker.value = savedColor;
         });
 
-        // Query the current active tab
-        chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
-            const tabId = tabs[0].id;
+        applyButton.addEventListener('click', function () {
+            const selectedColor = colorPicker.value;
 
-            // Inject the script to change the theme color of the current page
+            chrome.storage.local.set({ [currentUrl]: selectedColor }, function() {
+                console.log('Theme color saved for', currentUrl, ':', selectedColor);
+            });
+
             chrome.scripting.executeScript({
-                target: { tabId: tabId },
+                target: { tabId: tabs[0].id },
                 function: applyThemeColor,
                 args: [selectedColor]
             });
@@ -32,7 +26,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// Function to inject into the current tab to change the theme color
 function applyThemeColor(selectedColor) {
     let themeMeta = document.querySelector("meta[name='theme-color']");
     if (themeMeta) {
