@@ -3,29 +3,67 @@
 <head>
     <title>Theme Selector</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
         body {
-            width: 200px;
-            height: 200px;
+            width: 240px;
+            height: 180px;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            font-family: 'Roboto', sans-serif;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            padding: 20px;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #333;
         }
 
         #colorPicker {
-            width: 150px;
-            height: 30px;
+            width: 160px;
+            height: 40px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        #colorPicker:hover {
+            border-color: #ff5733;
         }
 
         #applyButton {
-            margin-top: 20px;
-            width: 100px;
-            height: 30px;
+            width: 120px;
+            height: 40px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #ff5733, #ff8f66);
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #applyButton:hover {
+            background: linear-gradient(135deg, #ff8f66, #ff5733);
         }
     </style>
 </head>
 <body>
-    <input type="color" id="colorPicker" value="#ff5733">
+    <h1>PWA Theme Selector</h1>
+    <input type="color" id="colorPicker">
     <button id="applyButton">Apply</button>
 
     <script src="popup.js"></script>
