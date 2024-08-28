@@ -13,10 +13,6 @@ Users can select different colors for different PWAs, which are remembered acros
 #### After
 <img src="images/after.png" alt="After" style="width: 500px;"/>
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 ## Features
 
 - **Custom Theme Colors**: Set different theme colors for each PWA you use.
