@@ -5,6 +5,13 @@
 **PWA Theme Selector** is a Chrome extension that allows users to customize the theme color of Progressive Web App (PWA) Chrome Apps—i.e., these: https://support.google.com/chrome/answer/9658361
 Users can select different colors for different PWAs, which are remembered across sessions. The extension is designed with minimal permissions and ensures that all settings are stored locally for privacy and security.
 
+### For example... 
+#### Before
+<img src="images/bfter.png" alt="Before" style="width: 500px;"/>
+
+#### After
+<img src="images/after.png" alt="After" style="width: 500px;"/>
+
 ## Features
 
 - **Custom Theme Colors**: Set different theme colors for each PWA you use.
