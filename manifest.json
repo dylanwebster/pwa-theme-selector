@@ -1,12 +1,9 @@
 {
     "manifest_version": 3,
-    "name": "PWA Theme Color Changer",
+    "name": "PWA Theme Selector",
     "version": "1.0",
     "description": "A Chrome extension to change the theme_color and background_color of PWAs.",
     "permissions": ["storage", "activeTab", "scripting"],
-    "background": {
-      "service_worker": "background.js"
-    },
     "action": {
       "default_popup": "popup.html",
       "default_icon": {

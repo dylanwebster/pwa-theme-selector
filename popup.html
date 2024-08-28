@@ -9,16 +9,25 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
         }
 
         #colorPicker {
             width: 150px;
             height: 30px;
         }
+
+        #applyButton {
+            margin-top: 20px;
+            width: 100px;
+            height: 30px;
+        }
     </style>
 </head>
 <body>
-    <input type="color" id="colorPicker">
+    <input type="color" id="colorPicker" value="#ff5733">
+    <button id="applyButton">Apply</button>
+
     <script src="popup.js"></script>
 </body>
 </html>
