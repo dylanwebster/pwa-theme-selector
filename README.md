@@ -8,7 +8,7 @@ Users can select different colors for different PWAs, which are remembered acros
 
 ### For example... 
 #### Before
-<img src="images/bfter.png" alt="Before" style="width: 500px;"/>
+<img src="images/before.png" alt="Before" style="width: 500px;"/>
 
 #### After
 <img src="images/after.png" alt="After" style="width: 500px;"/>
