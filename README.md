@@ -3,9 +3,9 @@
 
 ## Overview
 
-**PWA Theme Selector** is a Chrome extension that allows users to customize the theme color of Progressive Web App (PWA) Chrome Apps—i.e., these: https://support.google.com/chrome/answer/9658361
+**PWA Theme Selector** is a Chrome extension that can customize the theme color (the color of the title bar) of Progressive Web App (PWA) Chrome Apps—i.e., these: https://support.google.com/chrome/answer/9658361
 
-Users can select different colors for different PWAs, which are remembered across sessions. The extension is designed with minimal permissions and ensures that all settings are stored locally for privacy and security.
+It lets you select different colors for different PWAs, which are remembered across sessions. All settings are stored locally; the extension has minimal permissions.
 
 ### For example... 
 #### Before
@@ -14,12 +14,12 @@ Users can select different colors for different PWAs, which are remembered acros
 #### After
 <img src="images/after.png" alt="After" style="width: 500px;"/>
 
-## Features
+### Features
 
 - **Custom Theme Colors**: Set different theme colors for each PWA you use.
 - **Persistent Settings**: The selected theme colors are saved locally and automatically applied whenever you revisit the PWA.
-- **Easy-to-Use Interface**: Simple and intuitive popup interface for selecting and applying theme colors.
-- **Minimal Permissions**: The extension requires only the necessary permissions (`activeTab`, `scripting`, and `storage`).
+- **Easy-to-Use Interface**: Simple interface for selecting and applying theme colors, including a color picker.
+- **Minimal Permissions**: Requires only the necessary permissions (`activeTab`, `scripting`, and `storage`).
 
 ## Installation
 
@@ -36,13 +36,6 @@ Users can select different colors for different PWAs, which are remembered acros
 3. **Select a Color**: Use the color picker to choose a custom theme color.
 4. **Apply**: Click the "Apply" button to set the theme color. The selected color will be immediately applied and saved for future visits.
 5. **Persistent Settings**: Your chosen color is stored locally and will be automatically applied whenever you visit the PWA again.
-
-## Permissions
-
-The extension requires the following permissions:
-- **`activeTab`**: To interact with the current tab and apply the theme color.
-- **`scripting`**: To inject the necessary script that changes the theme color.
-- **`storage`**: To save the selected theme colors locally for each PWA.
 
 ### Directory Structure
 
