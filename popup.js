@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
         const currentUrl = new URL(tabs[0].url).origin;
 
+        // Load saved color or use default
         chrome.storage.local.get([currentUrl], function(data) {
             const savedColor = data[currentUrl] || '#000000'; // Default color
             colorPicker.value = savedColor;
@@ -27,13 +28,30 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function applyThemeColor(selectedColor) {
-    let themeMeta = document.querySelector("meta[name='theme-color']");
-    if (themeMeta) {
+    const themeMetaTags = document.querySelectorAll("meta[name='theme-color']");
+
+    themeMetaTags.forEach((themeMeta) => {
         themeMeta.setAttribute("content", selectedColor);
-    } else {
-        themeMeta = document.createElement("meta");
+    });
+
+    if (themeMetaTags.length === 0) {
+        const themeMeta = document.createElement("meta");
         themeMeta.setAttribute("name", "theme-color");
         themeMeta.setAttribute("content", selectedColor);
         document.head.appendChild(themeMeta);
     }
+
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'content') {
+                themeMetaTags.forEach((themeMeta) => {
+                    themeMeta.setAttribute("content", selectedColor);
+                });
+            }
+        });
+    });
+
+    themeMetaTags.forEach((themeMeta) => {
+        observer.observe(themeMeta, { attributes: true });
+    });
 }

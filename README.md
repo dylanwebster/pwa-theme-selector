@@ -37,7 +37,16 @@ It lets you select different colors for different PWAs, which are remembered acr
 4. **Apply**: Click the "Apply" button to set the theme color. The selected color will be immediately applied and saved for future visits.
 5. **Persistent Settings**: Your chosen color is stored locally and will be automatically applied whenever you visit the PWA again.
 
-### Directory Structure
+## Version Notes
+
+### Version 1.1
+- **Improved Compatibility**: The extension now handles multiple `<meta name="theme-color">` tags, allowing it to support PWAs with different theme colors for light and dark modes.
+- **MutationObserver Integration**: Added a `MutationObserver` to ensure that the selected theme color persists even if the PWA dynamically changes the theme color.
+
+### Version 1.0
+- Initial release with basic functionality to change the theme color of PWAs.
+
+## Code Description
 
 - **`manifest.json`**: The manifest file containing the extension’s metadata.
 - **`content.js`**: The content script responsible for applying the theme color to PWAs.
